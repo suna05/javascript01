@@ -1,0 +1,39 @@
+<!-- DOM API 사용법 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HTML</title>
+</head>
+<body>
+  <button id="btn1" type="button">버튼1</button>
+  <button id="btn2" type="button">버튼2</button>
+<script>
+/* 애플리케이션에서 이벤트를 발생시키기(triggering event)
+=> 사용자가 아닌 코드에서 이벤트를 발생시키는 것
+*/
+var btn1 = document.querySelector('#btn1')
+var btn2 = document.querySelector('#btn2')
+
+btn1.addEventListener('click', function(event) {
+  var ce = new CustomEvent('okok', {detail: {name:'홍길동', age: 20, working: false }})
+    btn2.dispatchEvent(ce)
+})
+
+btn2.addEventListener('okok', function(event) {
+
+  console.log(event)
+  console.log(event.detail.name)
+  console.log(event.detail.age)
+  console.log(event.detail.working)
+})
+
+
+</script>
+</body>
+</html>
+
+
+
+
+<!-- -->
